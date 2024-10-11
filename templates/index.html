@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="messageok">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div>
+        <a href="/add">Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+        </tr>
+        {% for carro in dados %}
+        <tr>
+            <td>{{carro.marca}}</td>
+            <td>{{carro.modelo}}</td>
+            <td>{{carro.ano}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
